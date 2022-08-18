@@ -1,6 +1,6 @@
 import { theme } from 'themes'
 import space from 'themes/space'
-import { Responsive, ResponsiveProp } from 'types/style'
+import { Responsive, ResponsiveProp } from 'types/styles'
 
 type AppTheme = typeof theme
 type SpaceThemeKeys = keyof typeof theme.space
@@ -28,7 +28,7 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param prop Responsive型
  * @param theme AppTheme
  */
-function toPropValue<T>(
+export function toPropValue<T>(
   propKey: string,
   prop?: Responsive<T>,
   theme?: AppTheme
