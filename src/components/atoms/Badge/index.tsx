@@ -23,7 +23,7 @@ const BadgeText = styled.p`
 const Badge = ({ content, backgroundColor }: BadgeProps) => {
   return (
     <BadgeWrapper backgroundColor={backgroundColor}>
-      <BadgeText>Badge</BadgeText>
+      <BadgeText>{content}</BadgeText>
     </BadgeWrapper>
   );
 };
