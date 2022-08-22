@@ -5,11 +5,11 @@ import Box from 'components/layout/Box';
 import styled from 'styled-components';
 
 type ProductCardProps = {
-  title: string;
-  price: number;
-  imageUrl: string;
-  blurDataUrl?: string;
-  variant?: 'listing' | 'small' | 'detail';
+  title: string; // 商品名
+  price: number; // 商品価格
+  imageUrl: string; // 商品画像
+  blurDataUrl?: string; // 商品のぼかし画像のデータURIスキーム
+  variant?: 'listing' | 'small' | 'detail'; // バリアント(表示スタイル)
 };
 
 const ProductCardContainer = styled.div`
