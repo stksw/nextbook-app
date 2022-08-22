@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Responsive } from 'types/styles';
+import { Responsive } from 'types';
 import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles';
 
 export type TextVariant =
