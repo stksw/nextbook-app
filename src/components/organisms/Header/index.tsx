@@ -8,6 +8,7 @@ import Link from 'next/link';
 import Box from 'components/layout/Box';
 import Spinner from 'components/atoms/Spinner';
 import Button from 'components/atoms/Button';
+import AppLogo from 'components/atoms/AppLogo';
 
 const HeaderRoot = styled.div`
   height: 88px;
@@ -49,7 +50,9 @@ const Header = () => {
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
             <Link href="/" passHref>
-              <Anchor as="a">{/* logo */}</Anchor>
+              <Anchor as="a">
+                <AppLogo />
+              </Anchor>
             </Link>
           </NavLink>
           {productNavs.map((nav, index) => (
