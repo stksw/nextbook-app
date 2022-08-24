@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobalSpinnerContext } from 'context/GlobalSpinnerContext';
+import { useGlobalSpinnerContext } from 'contexts/GlobalSpinnerContext';
 import Spinner from 'components/atoms/Spinner';
 
 const GlobalSpinnerWrapper = styled.div`

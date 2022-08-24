@@ -2,7 +2,7 @@ import React, { createContext, useContext, useState } from 'react';
 
 const GlobalSpinnerContext = createContext<boolean>(false);
 // eslint-disable-next-line
-const GlobalSpinnerActionContext = createContext<React.Dispatch<React.SetStateAction<boolean>>>(
+const GlobalSpinnerActionsContext = createContext<React.Dispatch<React.SetStateAction<boolean>>>(
   () => {}
 );
 
@@ -12,8 +12,8 @@ export const useGlobalSpinnerContext = (): boolean => {
 };
 
 // グローバルスピナーの表示・非表示のアクション
-export const useGlobalSpinnerActionContext = (): React.Dispatch<React.SetStateAction<boolean>> => {
-  return useContext<React.Dispatch<React.SetStateAction<boolean>>>(GlobalSpinnerActionContext);
+export const useGlobalSpinnerActionsContext = (): React.Dispatch<React.SetStateAction<boolean>> => {
+  return useContext<React.Dispatch<React.SetStateAction<boolean>>>(GlobalSpinnerActionsContext);
 };
 
 type GlobalSpinnerContextProviderProps = {
@@ -25,9 +25,9 @@ const GlobalSpinnerContextProvider = ({ children }: GlobalSpinnerContextProvider
 
   return (
     <GlobalSpinnerContext.Provider value={globalSpinner}>
-      <GlobalSpinnerActionContext.Provider value={setGlobalSpinner}>
+      <GlobalSpinnerActionsContext.Provider value={setGlobalSpinner}>
         {children}
-      </GlobalSpinnerActionContext.Provider>
+      </GlobalSpinnerActionsContext.Provider>
     </GlobalSpinnerContext.Provider>
   );
 };
