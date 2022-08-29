@@ -37,7 +37,8 @@ export function toPropValue<T>(propKey: string, prop?: Responsive<T>, theme?: Ap
     const result = []
     for (const responsiveKey in prop) {
       if (responsiveKey === 'base') {
-        result.push(`${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`)
+        // デフォルトのスタイル
+        result.push(`${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)};`)
       } else if (
         responsiveKey === 'sm' ||
         responsiveKey == 'md' ||
@@ -51,7 +52,7 @@ export function toPropValue<T>(propKey: string, prop?: Responsive<T>, theme?: Ap
     }
     return result.join('\n')
   }
-  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`
+  return `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)};`
 }
 
 function isResponsivePropType<T>(prop: any): prop is ResponsiveProp<T> {
