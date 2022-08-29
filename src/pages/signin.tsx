@@ -28,12 +28,7 @@ const SigninPage: NextPage = () => {
         paddingRight={{ base: 2, md: 0 }}
         justifyContent="center"
       >
-        <Flex
-          width="400px"
-          flexDirection="column"
-          justifyContent="center"
-          alignItems="center"
-        >
+        <Flex width="400px" flexDirection="column" justifyContent="center" alignItems="center">
           <Box marginBottom={2}>
             <AppLogo />
           </Box>

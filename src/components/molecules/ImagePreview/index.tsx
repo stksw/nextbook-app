@@ -36,13 +36,7 @@ interface ImagePreviewProps {
   onRemove?: (src: string) => void;
 }
 
-const ImagePreview = ({
-  src,
-  alt,
-  height,
-  width,
-  onRemove,
-}: ImagePreviewProps) => {
+const ImagePreview = ({ src, alt, height, width, onRemove }: ImagePreviewProps) => {
   // 閉じるボタンを押したらonRemove
   const handleCloseClick = (e: React.MouseEvent<HTMLDivElement>) => {
     e.preventDefault();
@@ -55,11 +49,7 @@ const ImagePreview = ({
     <ImagePreviewContainer>
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img src={src} alt={alt} height={height} width={width} />
-      <CloseBox
-        alignItems="center"
-        justifyContent="center"
-        onClick={handleCloseClick}
-      >
+      <CloseBox alignItems="center" justifyContent="center" onClick={handleCloseClick}>
         <CloseIcon size={24} color="white" />
       </CloseBox>
     </ImagePreviewContainer>

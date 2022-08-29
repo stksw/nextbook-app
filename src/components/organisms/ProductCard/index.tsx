@@ -27,13 +27,7 @@ const ProductCardInfo = styled.div`
   left: 0;
 `;
 
-const ProductCard = ({
-  title,
-  price,
-  imageUrl,
-  blurDataUrl,
-  variant,
-}: ProductCardProps) => {
+const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant }: ProductCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {
       case 'detail':

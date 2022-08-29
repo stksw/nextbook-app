@@ -27,8 +27,7 @@ export type BoxProps = {
 
 const Box = styled.div<BoxProps>`
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) =>
-    toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('minWidth', props.minWidth, props.theme)}

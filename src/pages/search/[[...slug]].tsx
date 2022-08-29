@@ -119,17 +119,13 @@ const SearchPage: NextPage = () => {
                   </Link>
                 </Box>
                 {/* カテゴリのリンク */}
-                {Object.keys(categoryNameDict).map(
-                  (category: string, index: number) => (
-                    <Box key={index} marginTop={1}>
-                      <Link href={`/search/${category}`} passHref>
-                        <Anchor as="a">
-                          {categoryNameDict[category as Category]}
-                        </Anchor>
-                      </Link>
-                    </Box>
-                  ),
-                )}
+                {Object.keys(categoryNameDict).map((category: string, index: number) => (
+                  <Box key={index} marginTop={1}>
+                    <Link href={`/search/${category}`} passHref>
+                      <Anchor as="a">{categoryNameDict[category as Category]}</Anchor>
+                    </Link>
+                  </Box>
+                ))}
               </Box>
             </Box>
 

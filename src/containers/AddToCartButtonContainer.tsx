@@ -25,11 +25,7 @@ const AddToCartButtonContainer = ({
   };
 
   return (
-    <Button
-      width={{ base: '100%', md: '400px' }}
-      height="66px"
-      onClick={handleClick}
-    >
+    <Button width={{ base: '100%', md: '400px' }} height="66px" onClick={handleClick}>
       カートに追加
     </Button>
   );

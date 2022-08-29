@@ -27,14 +27,13 @@ const getAllProducts = async (
     limit,
     sort = 'id',
     order = 'desc',
-  }: GetAllProductsParams = {},
+  }: GetAllProductsParams = {}
 ): Promise<Product[]> => {
   const path = `${context.apiRootUrl.replace(/\/$/g, '')}/products`;
   const params = new URLSearchParams();
 
   category && params.append('category', category);
-  conditions &&
-    conditions.forEach((condition) => params.append('conditions', condition));
+  conditions && conditions.forEach((condition) => params.append('conditions', condition));
   userId && params.append('owner.id', `${userId}`);
   page && params.append('_page', `${page}`);
   limit && params.append('_limit', `${limit}`);

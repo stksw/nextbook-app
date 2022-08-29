@@ -18,10 +18,7 @@ interface ProductCardListContainerProps {
 /**
  * 商品カードリストコンテナ
  */
-const ProductCardListContainer = ({
-  category,
-  conditions,
-}: ProductCardListContainerProps) => {
+const ProductCardListContainer = ({ category, conditions }: ProductCardListContainerProps) => {
   const { products, isLoading } = useSearch(context, {
     category,
     conditions,

@@ -1,13 +1,6 @@
 import styled from 'styled-components';
 import { Responsive } from 'types';
-import {
-  Color,
-  FontSize,
-  LetterSpacing,
-  LineHeight,
-  Space,
-  toPropValue,
-} from 'utils/styles';
+import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles';
 
 export type TextVariant =
   | 'extraSmall'
@@ -82,18 +75,10 @@ const Text = styled.span<TextProps>`
   ${({ variant, fontSize, letterSpacing, lineHeight, theme }) => {
     if (variant && variants[variant]) {
       const styles = [];
-      !fontSize &&
-        styles.push(
-          toPropValue('font-size', variants[variant].fontSize, theme),
-        );
+      !fontSize && styles.push(toPropValue('font-size', variants[variant].fontSize, theme));
       !letterSpacing &&
-        styles.push(
-          toPropValue('letter-spacing', variants[variant].letterSpacing, theme),
-        );
-      !lineHeight &&
-        styles.push(
-          toPropValue('line-height', variants[variant].lineHeight, theme),
-        );
+        styles.push(toPropValue('letter-spacing', variants[variant].letterSpacing, theme));
+      !lineHeight && styles.push(toPropValue('line-height', variants[variant].lineHeight, theme));
 
       return styles.join('\n');
     }
@@ -103,8 +88,7 @@ const Text = styled.span<TextProps>`
   ${(props) => toPropValue('letter-spacing', props.letterSpacing, props.theme)}
   ${(props) => toPropValue('line-height', props.lineHeight, props.theme)}
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) =>
-    toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('min-width', props.minWidth, props.theme)}

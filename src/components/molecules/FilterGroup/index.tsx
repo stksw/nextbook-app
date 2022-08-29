@@ -39,7 +39,7 @@ const FilterGroup = ({
       setSelected(newSelected);
       onChange && onChange(newSelected);
     },
-    [selected, onChange],
+    [selected, onChange]
   );
 
   return (

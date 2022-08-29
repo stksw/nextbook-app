@@ -49,19 +49,9 @@ const CartProduct = ({
           </Link>
         </Box>
         <Box padding={1}>
-          <Flex
-            height="100%"
-            flexDirection="column"
-            justifyContent="space-between"
-          >
+          <Flex height="100%" flexDirection="column" justifyContent="space-between">
             <Box>
-              <Text
-                fontWeight="bold"
-                variant="mediumLarge"
-                marginTop={0}
-                marginBottom={1}
-                as="p"
-              >
+              <Text fontWeight="bold" variant="mediumLarge" marginTop={0} marginBottom={1} as="p">
                 {title}
               </Text>
               <Text margin={0} as="p">
@@ -90,10 +80,7 @@ const CartProduct = ({
       </Flex>
 
       <Box display={{ base: 'none', md: 'block' }}>
-        <RemoveText
-          color="danger"
-          onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
-        >
+        <RemoveText color="danger" onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}>
           カートから削除
         </RemoveText>
       </Box>

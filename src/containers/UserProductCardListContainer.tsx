@@ -19,11 +19,7 @@ const UserProductCardListContainer = ({
         <Fragment key={p.id}>
           <Link href={``}>
             <a>
-              <ProductCard
-                title={p.title}
-                price={p.price}
-                imageUrl={p.imageUrl}
-              />
+              <ProductCard title={p.title} price={p.price} imageUrl={p.imageUrl} />
             </a>
           </Link>
         </Fragment>

@@ -1,10 +1,4 @@
-import {
-  fireEvent,
-  render,
-  RenderResult,
-  screen,
-  act,
-} from '@testing-library/react';
+import { fireEvent, render, RenderResult, screen, act } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import Dropdown from '.';
 import { theme } from 'themes';
@@ -24,7 +18,7 @@ describe('Dropdown', () => {
           ]}
           onChange={handleChange}
         />
-      </ThemeProvider>,
+      </ThemeProvider>
     );
   });
 

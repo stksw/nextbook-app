@@ -13,9 +13,7 @@ const DropdownControl = styled.div<{ hasError?: boolean }>`
   overflow: hidden;
   background-color: #ffffff;
   border: ${({ theme, hasError }) =>
-    hasError
-      ? `1px solid ${theme.colors.danger}`
-      : `1px solid ${theme.colors.border}`};
+    hasError ? `1px solid ${theme.colors.danger}` : `1px solid ${theme.colors.border}`};
   border-radius: 5px;
   box-sizing: border-box;
   cursor: default;
@@ -36,9 +34,7 @@ const DropdownPlaceholder = styled.div`
 
 const DropdownArrow = styled.div<{ isOpen?: boolean }>`
   border-color: ${({ isOpen }) =>
-    isOpen
-      ? 'transparent transparent #222222;'
-      : '#222222 transparent transparent'};
+    isOpen ? 'transparent transparent #222222;' : '#222222 transparent transparent'};
   border-width: ${({ isOpen }) => (isOpen ? '0 5px 5px' : '5px 5px 0;')};
   border-style: solid;
   content: ' ';
@@ -54,8 +50,8 @@ const DropdownArrow = styled.div<{ isOpen?: boolean }>`
 const DropdownMenu = styled.div`
   background-color: #ffffff;
   border: ${({ theme }) => theme.colors.border};
-  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%),
-    0px 8px 10px 1px rgb(0 0 0 / 10%), 0px 3px 14px 2px rgb(0 0 0 / 12%);
+  box-shadow: 0px 5px 5px -3px rgb(0 0 0 / 20%), 0px 8px 10px 1px rgb(0 0 0 / 10%),
+    0px 3px 14px 2px rgb(0 0 0 / 12%);
   box-sizing: border-box;
   border-radius: 5px;
   margin-top: -1px;
@@ -102,14 +98,7 @@ interface DropdownProps {
   onChange?: (selected?: DropdownItem) => void; // 値が変化した時のイベントハンドラ
 }
 
-const Dropdown = ({
-  onChange,
-  name,
-  value,
-  options,
-  hasError,
-  placeholder,
-}: DropdownProps) => {
+const Dropdown = ({ onChange, name, value, options, hasError, placeholder }: DropdownProps) => {
   const [isOpen, setIsOpen] = useState(false);
   const initialItem = options.find((option) => option.value === value);
   const [selectedItem, setSelectedItem] = useState(initialItem);
@@ -129,7 +118,7 @@ const Dropdown = ({
         setIsOpen(false);
       }
     },
-    [dropdownRef],
+    [dropdownRef]
   );
 
   // ドロップダウンの開閉
@@ -139,10 +128,7 @@ const Dropdown = ({
   };
 
   // ドロップダウン内の要素を選択
-  const handleSelectValue = (
-    e: React.FormEvent<HTMLDivElement>,
-    item: DropdownItem,
-  ) => {
+  const handleSelectValue = (e: React.FormEvent<HTMLDivElement>, item: DropdownItem) => {
     e.stopPropagation();
 
     setSelectedItem(item);
@@ -176,9 +162,7 @@ const Dropdown = ({
           </DropdownValue>
         )}
         {/* 何も選択されてない時はプレースホルダーを表示 */}
-        {!selectedItem && (
-          <DropdownPlaceholder>{placeholder}</DropdownPlaceholder>
-        )}
+        {!selectedItem && <DropdownPlaceholder>{placeholder}</DropdownPlaceholder>}
         {/* ダミーinput */}
         <input
           type="hidden"

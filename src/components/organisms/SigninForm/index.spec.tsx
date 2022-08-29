@@ -1,10 +1,4 @@
-import {
-  render,
-  act,
-  screen,
-  fireEvent,
-  RenderResult,
-} from '@testing-library/react';
+import { render, act, screen, fireEvent, RenderResult } from '@testing-library/react';
 import { ThemeProvider } from 'styled-components';
 import SigninForm from '.';
 import { theme } from 'themes';
@@ -19,7 +13,7 @@ describe('SigninForm', () => {
     renderResult = render(
       <ThemeProvider theme={theme}>
         <SigninForm onSignin={handleSignin} />
-      </ThemeProvider>,
+      </ThemeProvider>
     );
   });
 
@@ -31,14 +25,10 @@ describe('SigninForm', () => {
     // DOMが更新される事を保証、React Hook FormのhandleSubmitが呼ばれるまで待つ
     await act(async () => {
       // ユーザー名とパスワードを入力
-      const inputUsernameNode = screen.getByPlaceholderText(
-        /ユーザー名/,
-      ) as HTMLInputElement;
+      const inputUsernameNode = screen.getByPlaceholderText(/ユーザー名/) as HTMLInputElement;
       fireEvent.change(inputUsernameNode, { target: { value: 'user' } });
 
-      const inputPasswordNode = screen.getByPlaceholderText(
-        /パスワード/,
-      ) as HTMLInputElement;
+      const inputPasswordNode = screen.getByPlaceholderText(/パスワード/) as HTMLInputElement;
       fireEvent.change(inputPasswordNode, { target: { value: 'password' } });
 
       // サインインボタンをクリック

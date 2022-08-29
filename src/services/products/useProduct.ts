@@ -12,12 +12,9 @@ export type UseProduct = {
   isError: boolean; // エラーフラグ
 };
 
-const useProduct = (
-  context: ApiContext,
-  { id, initial }: UseProductProps,
-): UseProduct => {
+const useProduct = (context: ApiContext, { id, initial }: UseProductProps): UseProduct => {
   const { data, error } = useSWR<Product>(
-    `${context.apiRootUrl.replace(/\/$/g, '')}/products/${id}`,
+    `${context.apiRootUrl.replace(/\/$/g, '')}/products/${id}`
   );
 
   return {

@@ -1,8 +1,7 @@
 import React, { useCallback, useState } from 'react';
 import styled from 'styled-components';
 
-export interface TextAreaProps
-  extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
+export interface TextAreaProps extends React.TextareaHTMLAttributes<HTMLTextAreaElement> {
   minRows?: number;
   maxRows?: number;
   hasError?: boolean;
@@ -14,8 +13,7 @@ const StyledTextArea = styled.textarea<{
 }>`
   color: ${({ theme }) => theme.colors.inputText};
   border: 1px solid
-    ${({ theme, hasError }) =>
-      hasError ? theme.colors.danger : theme.colors.border};
+    ${({ theme, hasError }) => (hasError ? theme.colors.danger : theme.colors.border)};
   border-radius: 5px;
   box-sizing: border-box;
   outline: none;
@@ -32,15 +30,7 @@ const StyledTextArea = styled.textarea<{
 `;
 
 const TextArea = (props: TextAreaProps) => {
-  const {
-    rows = 5,
-    minRows = 5,
-    maxRows = 10,
-    hasError,
-    onChange,
-    children,
-    ...rest
-  } = props;
+  const { rows = 5, minRows = 5, maxRows = 10, hasError, onChange, children, ...rest } = props;
   const [textareaRows, setTextareaRows] = useState(Math.min(rows, minRows));
 
   const handleChange = useCallback(
@@ -49,9 +39,7 @@ const TextArea = (props: TextAreaProps) => {
       const previousRows = e.target.rows;
       e.target.rows = minRows; // 行数のリセット
 
-      const currentRows = Math.floor(
-        e.target.scrollHeight / textareaLineHeight,
-      );
+      const currentRows = Math.floor(e.target.scrollHeight / textareaLineHeight);
 
       if (currentRows === previousRows) {
         e.target.rows = currentRows;
@@ -66,7 +54,7 @@ const TextArea = (props: TextAreaProps) => {
       setTextareaRows(currentRows < maxRows ? currentRows : maxRows);
       onChange && onChange(e);
     },
-    [minRows, maxRows, onChange],
+    [minRows, maxRows, onChange]
   );
 
   return (

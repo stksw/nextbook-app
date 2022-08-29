@@ -32,35 +32,31 @@ const product: Product = {
 // ShoppingCartContextのモック
 jest.mock('contexts/ShoppingCartContext');
 // オリジナルのShoppingCartContextProviderを取得
-const { ShoppingCartContextProvider } = jest.requireActual(
-  'contexts/ShoppingCartContext',
-);
+const { ShoppingCartContextProvider } = jest.requireActual('contexts/ShoppingCartContext');
 
 describe('Header', () => {
   let renderResult: RenderResult;
-  const useShoppingCartContextMock =
-    useShoppingCartContext as jest.MockedFunction<
-      typeof useShoppingCartContext
-    >;
+  const useShoppingCartContextMock = useShoppingCartContext as jest.MockedFunction<
+    typeof useShoppingCartContext
+  >;
 
   it('exist item in cart', async () => {
     useShoppingCartContextMock.mockReturnValue({
       cart: [product],
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       addProductToCart: () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       removeProductFromCart: () => {},
     });
 
     renderResult = render(
       <ThemeProvider theme={theme}>
         <ShoppingCartContextProvider>
-          <AuthContextProvider
-            authUser={authUser}
-            context={{ apiRootUrl: 'https://dummy' }}
-          >
+          <AuthContextProvider authUser={authUser} context={{ apiRootUrl: 'https://dummy' }}>
             <Header />
           </AuthContextProvider>
         </ShoppingCartContextProvider>
-      </ThemeProvider>,
+      </ThemeProvider>
     );
 
     expect(screen.getAllByTestId('badge-wrapper').length).toBeGreaterThan(0);
@@ -71,7 +67,9 @@ describe('Header', () => {
   it('before signin', () => {
     useShoppingCartContextMock.mockReturnValue({
       cart: [],
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       addProductToCart: () => {},
+      // eslint-disable-next-line @typescript-eslint/no-empty-function
       removeProductFromCart: () => {},
     });
 
@@ -82,7 +80,7 @@ describe('Header', () => {
             <Header />
           </AuthContextProvider>
         </ShoppingCartContextProvider>
-      </ThemeProvider>,
+      </ThemeProvider>
     );
 
     // before signin

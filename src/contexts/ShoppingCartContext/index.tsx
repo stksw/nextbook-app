@@ -10,7 +10,9 @@ type ShoppingCartContextType = {
 
 const ShoppingCartContext = createContext<ShoppingCartContextType>({
   cart: [],
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   addProductToCart: () => {},
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
   removeProductFromCart: () => {},
 });
 
@@ -22,9 +24,7 @@ type ShoppingCartContextProps = {
   children?: React.ReactNode;
 };
 
-const ShoppingCartContextProvider = ({
-  children,
-}: ShoppingCartContextProps) => {
+const ShoppingCartContextProvider = ({ children }: ShoppingCartContextProps) => {
   const products: Product[] = [];
   const [cart, dispatch] = useReducer(shopReducer, products);
 
@@ -37,9 +37,7 @@ const ShoppingCartContextProvider = ({
   };
 
   return (
-    <ShoppingCartContext.Provider
-      value={{ cart, addProductToCart, removeProductFromCart }}
-    >
+    <ShoppingCartContext.Provider value={{ cart, addProductToCart, removeProductFromCart }}>
       {children}
     </ShoppingCartContext.Provider>
   );
