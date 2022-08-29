@@ -1,13 +1,13 @@
 import React from 'react';
-import { Category, Condition } from 'types';
 import { Controller, useForm } from 'react-hook-form';
-import Box from 'components/layout/Box';
-import Text from 'components/atoms/Text';
-import Input from 'components/atoms/Input';
-import TextArea from 'components/atoms/TextArea';
-import Dropdown from 'components/molecules/Dropdown';
 import Button from 'components/atoms/Button';
+import Input from 'components/atoms/Input';
+import Text from 'components/atoms/Text';
+import TextArea from 'components/atoms/TextArea';
+import Box from 'components/layout/Box';
+import Dropdown from 'components/molecules/Dropdown';
 import InputImages, { FileData } from 'components/molecules/InputImage';
+import { Category, Condition } from 'types';
 
 export type ProductFormData = {
   image: FileData[];
@@ -99,7 +99,11 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
             name="description"
             rules={{ required: true }}
             render={({ field: { onChange, value }, fieldState: { error } }) => (
-              <TextArea placeholder="最高の商品です！" hasError={!!error} onChange={onChange}>
+              <TextArea
+                placeholder="最高の商品です！"
+                hasError={!!error}
+                onChange={onChange}
+              >
                 {value}
               </TextArea>
             )}

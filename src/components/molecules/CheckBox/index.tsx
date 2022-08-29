@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
-import Flex from 'components/layout/Flex';
 import styled from 'styled-components';
-import { CheckBoxIcon, CheckBoxOutlineBlankIcon } from 'components/atoms/IconButton';
+import {
+  CheckBoxIcon,
+  CheckBoxOutlineBlankIcon,
+} from 'components/atoms/IconButton';
 import Text from 'components/atoms/Text';
+import Flex from 'components/layout/Flex';
 
 export interface CheckBoxProps
   extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'defaultValue'> {
@@ -28,7 +31,7 @@ const CheckBox = ({ checked, id, label, onChange, ...rest }: CheckBoxProps) => {
       ref.current?.click();
       setIsChecked((isChecked) => !isChecked);
     },
-    [ref, setIsChecked]
+    [ref, setIsChecked],
   );
 
   useEffect(() => {

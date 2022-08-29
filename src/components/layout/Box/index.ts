@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 import { Responsive } from 'types';
-import { Color, Space } from 'utils/styles';
-import { toPropValue } from 'utils/styles';
+import { Color, Space, toPropValue } from 'utils/styles';
 
 // Boxが取りうるプロパティ
 export type BoxProps = {
@@ -28,7 +27,8 @@ export type BoxProps = {
 
 const Box = styled.div<BoxProps>`
   ${(props) => toPropValue('color', props.color, props.theme)}
-  ${(props) => toPropValue('background-color', props.backgroundColor, props.theme)}
+  ${(props) =>
+    toPropValue('background-color', props.backgroundColor, props.theme)}
   ${(props) => toPropValue('width', props.width, props.theme)}
   ${(props) => toPropValue('height', props.height, props.theme)}
   ${(props) => toPropValue('minWidth', props.minWidth, props.theme)}

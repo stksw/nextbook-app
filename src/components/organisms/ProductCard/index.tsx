@@ -1,8 +1,8 @@
 import React from 'react';
+import styled from 'styled-components';
 import ScaleImage from 'components/atoms/ScaleImage';
 import Text from 'components/atoms/Text';
 import Box from 'components/layout/Box';
-import styled from 'styled-components';
 
 type ProductCardProps = {
   title: string; // 商品名
@@ -27,7 +27,13 @@ const ProductCardInfo = styled.div`
   left: 0;
 `;
 
-const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant }: ProductCardProps) => {
+const ProductCard = ({
+  title,
+  price,
+  imageUrl,
+  blurDataUrl,
+  variant,
+}: ProductCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {
       case 'detail':

@@ -1,18 +1,18 @@
-import React from 'react';
 import { NextPage } from 'next';
-import { Category, Condition } from 'types';
-import { useRouter } from 'next/router';
-import Layout from 'components/templates/Layout';
-import Box from 'components/layout/Box';
-import Breadcrumb from 'components/molecules/Breadcrumb';
-import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
+import React from 'react';
 import styled from 'styled-components';
+import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
 import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
 import Flex from 'components/layout/Flex';
+import Breadcrumb from 'components/molecules/Breadcrumb';
 import FilterGroup from 'components/molecules/FilterGroup';
-import UserProductCardListContainer from 'containers/UserProductCardListContainer';
+import Layout from 'components/templates/Layout';
 import ProductCardListContainer from 'containers/ProductCardListContainer';
+import UserProductCardListContainer from 'containers/UserProductCardListContainer';
+import { Category, Condition } from 'types';
 
 /**
  * [[...slug]].tsxのファイルは/search以下の全てのパスにマッチ
@@ -119,13 +119,17 @@ const SearchPage: NextPage = () => {
                   </Link>
                 </Box>
                 {/* カテゴリのリンク */}
-                {Object.keys(categoryNameDict).map((category: string, index: number) => (
-                  <Box key={index} marginTop={1}>
-                    <Link href={`/search/${category}`} passHref>
-                      <Anchor as="a">{categoryNameDict[category as Category]}</Anchor>
-                    </Link>
-                  </Box>
-                ))}
+                {Object.keys(categoryNameDict).map(
+                  (category: string, index: number) => (
+                    <Box key={index} marginTop={1}>
+                      <Link href={`/search/${category}`} passHref>
+                        <Anchor as="a">
+                          {categoryNameDict[category as Category]}
+                        </Anchor>
+                      </Link>
+                    </Box>
+                  ),
+                )}
               </Box>
             </Box>
 

@@ -1,5 +1,4 @@
 import { theme } from 'themes';
-import space from 'themes/space';
 import { Responsive, ResponsiveProp } from 'types';
 
 type AppTheme = typeof theme;
@@ -28,14 +27,20 @@ const BREAKPOINTS: { [key: string]: string } = {
  * @param prop Responsive型
  * @param theme AppTheme
  */
-export function toPropValue<T>(propKey: string, prop?: Responsive<T>, theme?: AppTheme) {
+export function toPropValue<T>(
+  propKey: string,
+  prop?: Responsive<T>,
+  theme?: AppTheme,
+) {
   if (prop === undefined) return undefined;
 
   if (isResponsivePropType(prop)) {
     const result = [];
     for (const responsiveKey in prop) {
       if (responsiveKey === 'base') {
-        result.push(`${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`);
+        result.push(
+          `${propKey}: ${toThemeValueIfNeeded(propKey, prop, theme)}`,
+        );
       } else if (
         responsiveKey === 'sm' ||
         responsiveKey == 'md' ||
@@ -43,7 +48,11 @@ export function toPropValue<T>(propKey: string, prop?: Responsive<T>, theme?: Ap
         responsiveKey == 'xl'
       ) {
         const breakpoint = BREAKPOINTS[responsiveKey];
-        const style = `${propKey}: ${toThemeValueIfNeeded(propKey, prop[responsiveKey], theme)}`;
+        const style = `${propKey}: ${toThemeValueIfNeeded(
+          propKey,
+          prop[responsiveKey],
+          theme,
+        )}`;
         result.push(`@media screen and (min-width: ${breakpoint}) {${style}}`);
       }
     }
@@ -89,11 +98,23 @@ const LINE_HEIGHT_KEYS = new Set(['line-height']);
 function toThemeValueIfNeeded<T>(propKey: string, value: T, theme?: AppTheme) {
   if (!theme) return value;
 
-  if (theme.space && SPACE_KEYS.has(propKey) && isSpaceThemeKeys(value, theme)) {
+  if (
+    theme.space &&
+    SPACE_KEYS.has(propKey) &&
+    isSpaceThemeKeys(value, theme)
+  ) {
     return theme.space[value];
-  } else if (theme.colors && COLOR_KEYS.has(propKey) && isColorThemeKeys(value, theme)) {
+  } else if (
+    theme.colors &&
+    COLOR_KEYS.has(propKey) &&
+    isColorThemeKeys(value, theme)
+  ) {
     return theme.colors[value];
-  } else if (theme.fontSizes && FONT_SIZE_KEYS.has(propKey) && isFontSizeThemeKeys(value, theme)) {
+  } else if (
+    theme.fontSizes &&
+    FONT_SIZE_KEYS.has(propKey) &&
+    isFontSizeThemeKeys(value, theme)
+  ) {
     return theme.fontSizes[value];
   } else if (
     theme.letterSpacings &&
@@ -101,7 +122,11 @@ function toThemeValueIfNeeded<T>(propKey: string, value: T, theme?: AppTheme) {
     isLetterSpacingKeys(value, theme)
   ) {
     return theme.letterSpacings[value];
-  } else if (theme.lineHeights && LINE_HEIGHT_KEYS.has(propKey) && isLineHeightKeys(value, theme)) {
+  } else if (
+    theme.lineHeights &&
+    LINE_HEIGHT_KEYS.has(propKey) &&
+    isLineHeightKeys(value, theme)
+  ) {
     return theme.lineHeights[value];
   }
 
@@ -116,14 +141,25 @@ function isColorThemeKeys(prop: any, theme: AppTheme): prop is ColorThemeKeys {
   return Object.keys(theme.colors).filter((key) => key == prop).length > 0;
 }
 
-function isFontSizeThemeKeys(prop: any, theme: AppTheme): prop is FontSizeThemeKeys {
+function isFontSizeThemeKeys(
+  prop: any,
+  theme: AppTheme,
+): prop is FontSizeThemeKeys {
   return Object.keys(theme.fontSizes).filter((key) => key == prop).length > 0;
 }
 
-function isLetterSpacingKeys(prop: any, theme: AppTheme): prop is LetterSpacingThemeKeys {
-  return Object.keys(theme.letterSpacings).filter((key) => key == prop).length > 0;
+function isLetterSpacingKeys(
+  prop: any,
+  theme: AppTheme,
+): prop is LetterSpacingThemeKeys {
+  return (
+    Object.keys(theme.letterSpacings).filter((key) => key == prop).length > 0
+  );
 }
 
-function isLineHeightKeys(prop: any, theme: AppTheme): prop is LineHeightThemeKeys {
+function isLineHeightKeys(
+  prop: any,
+  theme: AppTheme,
+): prop is LineHeightThemeKeys {
   return Object.keys(theme.lineHeights).filter((key) => key == prop).length > 0;
 }

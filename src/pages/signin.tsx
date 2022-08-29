@@ -1,10 +1,10 @@
-import React from 'react';
 import { NextPage } from 'next';
 import { useRouter } from 'next/router';
-import Layout from 'components/templates/Layout';
-import Flex from 'components/layout/Flex';
-import Box from 'components/layout/Box';
+import React from 'react';
 import AppLogo from 'components/atoms/AppLogo';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
+import Layout from 'components/templates/Layout';
 import SigninFormContainer from 'containers/SigninFormContainer';
 
 const SigninPage: NextPage = () => {
@@ -28,7 +28,12 @@ const SigninPage: NextPage = () => {
         paddingRight={{ base: 2, md: 0 }}
         justifyContent="center"
       >
-        <Flex width="400px" flexDirection="column" justifyContent="center" alignItems="center">
+        <Flex
+          width="400px"
+          flexDirection="column"
+          justifyContent="center"
+          alignItems="center"
+        >
           <Box marginBottom={2}>
             <AppLogo />
           </Box>

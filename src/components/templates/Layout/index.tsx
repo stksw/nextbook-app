@@ -1,8 +1,8 @@
+import React from 'react';
 import Separator from 'components/atoms/Separator';
 import Box from 'components/layout/Box';
 import Footer from 'components/organisms/Footer';
 import Header from 'components/organisms/Header';
-import React from 'react';
 
 type LayoutProps = {
   children: React.ReactNode;

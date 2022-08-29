@@ -35,8 +35,11 @@ const FilterGroup = ({
       const newSelected = e.target.checked
         ? [...selected, value]
         : selected.filter((v) => v !== value);
+
+      setSelected(newSelected);
+      onChange && onChange(newSelected);
     },
-    [selected, onChange]
+    [selected, onChange],
   );
 
   return (

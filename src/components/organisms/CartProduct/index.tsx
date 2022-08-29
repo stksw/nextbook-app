@@ -1,11 +1,11 @@
-import React from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
+import React from 'react';
 import styled from 'styled-components';
-import Text from 'components/atoms/Text';
-import Flex from 'components/layout/Flex';
-import Box from 'components/layout/Box';
 import Button from 'components/atoms/Button';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
 
 const RemoveText = styled(Text)`
   cursor: pointer;
@@ -49,9 +49,19 @@ const CartProduct = ({
           </Link>
         </Box>
         <Box padding={1}>
-          <Flex height="100%" flexDirection="column" justifyContent="space-between">
+          <Flex
+            height="100%"
+            flexDirection="column"
+            justifyContent="space-between"
+          >
             <Box>
-              <Text fontWeight="bold" variant="mediumLarge" marginTop={0} marginBottom={1} as="p">
+              <Text
+                fontWeight="bold"
+                variant="mediumLarge"
+                marginTop={0}
+                marginBottom={1}
+                as="p"
+              >
                 {title}
               </Text>
               <Text margin={0} as="p">
@@ -80,7 +90,10 @@ const CartProduct = ({
       </Flex>
 
       <Box display={{ base: 'none', md: 'block' }}>
-        <RemoveText color="danger" onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}>
+        <RemoveText
+          color="danger"
+          onClick={() => onRemoveButtonClick && onRemoveButtonClick(id)}
+        >
           カートから削除
         </RemoveText>
       </Box>

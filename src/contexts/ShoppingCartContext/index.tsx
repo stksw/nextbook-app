@@ -1,6 +1,6 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { Product } from 'types';
 import { ADD_PRODUCT, REMOVE_PRODUCT, shopReducer } from './reducers';
+import { Product } from 'types';
 
 type ShoppingCartContextType = {
   cart: Product[];
@@ -22,7 +22,9 @@ type ShoppingCartContextProps = {
   children?: React.ReactNode;
 };
 
-const ShoppingCartContextProvider = ({ children }: ShoppingCartContextProps) => {
+const ShoppingCartContextProvider = ({
+  children,
+}: ShoppingCartContextProps) => {
   const products: Product[] = [];
   const [cart, dispatch] = useReducer(shopReducer, products);
 
@@ -35,7 +37,9 @@ const ShoppingCartContextProvider = ({ children }: ShoppingCartContextProps) => 
   };
 
   return (
-    <ShoppingCartContext.Provider value={{ cart, addProductToCart, removeProductFromCart }}>
+    <ShoppingCartContext.Provider
+      value={{ cart, addProductToCart, removeProductFromCart }}
+    >
       {children}
     </ShoppingCartContext.Provider>
   );

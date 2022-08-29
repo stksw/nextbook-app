@@ -43,10 +43,14 @@ const InputImages = (props: InputImagesProps) => {
     onChange,
   } = props;
   const files = useMemo(
-    () => images.filter((img: FileData) => img.file).map((img: FileData) => img.file as File),
-    [images]
+    () =>
+      images
+        .filter((img: FileData) => img.file)
+        .map((img: FileData) => img.file as File),
+    [images],
   );
-  const isDropzoneDisplay = !maximumNumber || images.length < maximumNumber ? 'block' : 'none';
+  const isDropzoneDisplay =
+    !maximumNumber || images.length < maximumNumber ? 'block' : 'none';
 
   const onRemove = useCallback(
     (src: string) => {
@@ -62,7 +66,7 @@ const InputImages = (props: InputImagesProps) => {
         onChange && onChange(newImages);
       }
     },
-    [images, onChange]
+    [images, onChange],
   );
 
   const onDrop = useCallback(
@@ -72,14 +76,17 @@ const InputImages = (props: InputImagesProps) => {
       for (const file of files) {
         const img = images.find((img: FileData) => img.file === file);
 
-        if (!img && (!maximumNumber || images.length + newImages.length < maximumNumber)) {
+        if (
+          !img &&
+          (!maximumNumber || images.length + newImages.length < maximumNumber)
+        ) {
           newImages.push({ file, src: URL.createObjectURL(file) });
         }
       }
 
       onChange && onChange(newImages);
     },
-    [images, maximumNumber, onChange]
+    [images, maximumNumber, onChange],
   );
 
   return (
@@ -98,7 +105,12 @@ const InputImages = (props: InputImagesProps) => {
         })}
       <Box style={{ display: isDropzoneDisplay }}>
         <Dropzone
-          acceptedFileTypes={['image/gif', 'image/jpeg', 'image/jpg', 'image/png']}
+          acceptedFileTypes={[
+            'image/gif',
+            'image/jpeg',
+            'image/jpg',
+            'image/png',
+          ]}
           name={name}
           height={height}
           width={width}

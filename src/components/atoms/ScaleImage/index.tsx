@@ -29,7 +29,11 @@ const ScaleEffectImage = styled(Image)`
 /**
  * スケールイメージ
  */
-const ScaleImage = ({ containerWidth, containerHeight, ...props }: ScaleImageProps) => (
+const ScaleImage = ({
+  containerWidth,
+  containerHeight,
+  ...props
+}: ScaleImageProps) => (
   <ScaleEffectImageContainer
     width={containerWidth ?? `${props.width}` ?? '320px'}
     height={containerHeight ?? `${props.height}` ?? '320px'}

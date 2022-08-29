@@ -1,9 +1,9 @@
-import { ApiContext, User } from 'types'
-import { fetcher } from 'utils'
+import { ApiContext, User } from 'types';
+import { fetcher } from 'utils';
 
 const getUser = async (
   context: ApiContext,
-  { id }: { id: number }
+  { id }: { id: number },
 ): Promise<User> => {
   return await fetcher(
     `${context.apiRootUrl.replace(/\/$/g, '')}/users/${id}`,
@@ -12,8 +12,8 @@ const getUser = async (
         Accept: 'application/json',
         'Content-Type': 'application/json',
       },
-    }
-  )
-}
+    },
+  );
+};
 
-export default getUser
+export default getUser;

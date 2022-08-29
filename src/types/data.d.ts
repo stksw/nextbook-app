@@ -3,7 +3,6 @@ import Image from 'next/image';
 export type User = {
   id: number;
   username: string;
-  password: string;
   email: string;
   displayName: string;
   profileImageUrl: string;

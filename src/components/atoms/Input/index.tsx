@@ -5,7 +5,8 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   ${({ theme, hasError, hasBorder }) => {
     if (hasBorder) {
       return css`
-        border: 1px solid ${hasError ? theme.colors.danger : theme.colors.border};
+        border: 1px solid
+          ${hasError ? theme.colors.danger : theme.colors.border};
         border-radius: 5px;
       `;
     } else {

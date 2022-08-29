@@ -59,17 +59,22 @@ const DropzoneRoot = styled.div<DropzoneRootProps>`
   border-radius: 8px;
   cursor: pointer;
   width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};
-  height: ${({ height }) => (typeof height === 'number' ? `${height}px` : height)};
+  height: ${({ height }) =>
+    typeof height === 'number' ? `${height}px` : height};
 `;
 
 // ドロップゾーンの内側
-const DropzoneContent = styled.div<{ width: string | number; height: string | number }>`
+const DropzoneContent = styled.div<{
+  width: string | number;
+  height: string | number;
+}>`
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   width: ${({ width }) => (typeof width === 'number' ? `${width}px` : width)};
-  height: ${({ height }) => (typeof height === 'number' ? `${height}px` : height)};
+  height: ${({ height }) =>
+    typeof height === 'number' ? `${height}px` : height};
 `;
 
 const DropzoneInputFile = styled.input`
@@ -105,7 +110,9 @@ const Dropzone = ({
     setFocused(false);
 
     const files = value.concat(
-      getFilesFromEvent(e).filter((f) => acceptedFileTypes?.includes(f.type as FileType))
+      getFilesFromEvent(e).filter((f) =>
+        acceptedFileTypes?.includes(f.type as FileType),
+      ),
     );
     onDrop && onDrop(files);
     onChange && onChange(files);
@@ -118,12 +125,16 @@ const Dropzone = ({
     setFocused(false);
 
     const files = value.concat(
-      getFilesFromEvent(e).filter((f) => acceptedFileTypes.includes(f.type as FileType))
+      getFilesFromEvent(e).filter((f) =>
+        acceptedFileTypes.includes(f.type as FileType),
+      ),
     );
 
     if (files.length == 0) {
       return window.alert(
-        `次のファイルフォーマットは指定できません ${acceptedFileTypes.join(', ')}`
+        `次のファイルフォーマットは指定できません ${acceptedFileTypes.join(
+          ', ',
+        )}`,
       );
     }
 

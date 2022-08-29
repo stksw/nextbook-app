@@ -1,7 +1,7 @@
 import { createContext, useContext } from 'react';
+import useSWR from 'swr';
 import signin from 'services/auth/signin';
 import signout from 'services/auth/signout';
-import useSWR from 'swr';
 import { ApiContext, User } from 'types';
 
 type AuthContextType = {
@@ -9,7 +9,10 @@ type AuthContextType = {
   isLoading: boolean;
   signin: (username: string, password: string) => Promise<void>;
   signout: () => Promise<void>;
-  mutate: (data?: User | Promise<User>, shouldRevalidate?: boolean) => Promise<User | undefined>;
+  mutate: (
+    data?: User | Promise<User>,
+    shouldRevalidate?: boolean,
+  ) => Promise<User | undefined>;
 };
 
 type AuthContextProviderProps = {
@@ -34,7 +37,9 @@ const AuthContextProvider = ({
   authUser,
   children,
 }: React.PropsWithChildren<AuthContextProviderProps>) => {
-  const { data, error, mutate } = useSWR<User>(`${context.apiRootUrl.replace(/\$/g, '')}/users/me`);
+  const { data, error, mutate } = useSWR<User>(
+    `${context.apiRootUrl.replace(/\$/g, '')}/users/me`,
+  );
 
   const handleSignin = async (username: string, password: string) => {
     await signin(context, { username, password });

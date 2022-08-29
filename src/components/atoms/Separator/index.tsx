@@ -5,7 +5,8 @@ interface SeparatorProps {
   children?: React.ReactNode;
 }
 
-const getMargin = ({ children }: SeparatorProps) => (children ? '.50em' : '0em');
+const getMargin = ({ children }: SeparatorProps) =>
+  children ? '.50em' : '0em';
 
 /**
  * セパレーター

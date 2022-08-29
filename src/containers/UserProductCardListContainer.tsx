@@ -1,5 +1,5 @@
-import { Fragment } from 'react';
 import Link from 'next/link';
+import { Fragment } from 'react';
 import ProductCard from 'components/organisms/ProductCard';
 import ProductCardList from 'components/organisms/ProductCardList';
 import { Product } from 'types';
@@ -19,7 +19,11 @@ const UserProductCardListContainer = ({
         <Fragment key={p.id}>
           <Link href={``}>
             <a>
-              <ProductCard title={p.title} price={p.price} imageUrl={p.imageUrl} />
+              <ProductCard
+                title={p.title}
+                price={p.price}
+                imageUrl={p.imageUrl}
+              />
             </a>
           </Link>
         </Fragment>

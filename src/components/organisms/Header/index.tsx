@@ -1,14 +1,16 @@
+import Link from 'next/link';
 import React from 'react';
-import Text from 'components/atoms/Text';
-import Flex from 'components/layout/Flex';
 import styled from 'styled-components';
+import AppLogo from 'components/atoms/AppLogo';
+import Button from 'components/atoms/Button';
+import { PersonIcon } from 'components/atoms/IconButton';
+import ShapeImage from 'components/atoms/ShapeImage';
+import Spinner from 'components/atoms/Spinner';
+import Text from 'components/atoms/Text';
+import Box from 'components/layout/Box';
+import Flex from 'components/layout/Flex';
 import { useAuthContext } from 'contexts/AuthContext';
 import { useShoppingCartContext } from 'contexts/ShoppingCartContext';
-import Link from 'next/link';
-import Box from 'components/layout/Box';
-import Spinner from 'components/atoms/Spinner';
-import Button from 'components/atoms/Button';
-import AppLogo from 'components/atoms/AppLogo';
 
 const HeaderRoot = styled.div`
   height: 88px;
@@ -83,7 +85,15 @@ const Header = () => {
               if (authUser) {
                 return (
                   <Link href={`/users/${authUser.id}`} passHref>
-                    <Anchor as="a"></Anchor>
+                    <Anchor as="a">
+                      <ShapeImage
+                        shape="circle"
+                        src={authUser.profileImageUrl}
+                        width={24}
+                        height={24}
+                        data-testid="profile-shape-image"
+                      />
+                    </Anchor>
                   </Link>
                 );
               } else if (isLoading) {
@@ -91,7 +101,9 @@ const Header = () => {
               } else {
                 return (
                   <Link href="/signin" passHref>
-                    <Anchor as="a"></Anchor>
+                    <Anchor as="a">
+                      <PersonIcon size={24} />
+                    </Anchor>
                   </Link>
                 );
               }

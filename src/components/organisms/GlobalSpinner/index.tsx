@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import { useGlobalSpinnerContext } from 'contexts/GlobalSpinnerContext';
 import Spinner from 'components/atoms/Spinner';
+import { useGlobalSpinnerContext } from 'contexts/GlobalSpinnerContext';
 
 const GlobalSpinnerWrapper = styled.div`
   position: fixed;

@@ -1,7 +1,7 @@
 import React from 'react';
 import UserProfile from 'components/organisms/UserProfile';
-import { ApiContext, User } from 'types';
 import useUser from 'services/users/useUser';
+import { ApiContext, User } from 'types';
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',

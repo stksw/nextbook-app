@@ -111,11 +111,13 @@ const ProductPage: NextPage<ProductPageProps> = ({ id, product: initial }) => {
           >
             {/* 商品概要を表示、改行ごとにテキストコンポーネントでラップ */}
             <Box>
-              {product.description.split('\n').map((text: string, i: number) => (
-                <Text key={i} as="p">
-                  {text}
-                </Text>
-              ))}
+              {product.description
+                .split('\n')
+                .map((text: string, i: number) => (
+                  <Text key={i} as="p">
+                    {text}
+                  </Text>
+                ))}
             </Box>
             {/*
               カート追加ボタンコンテナ
