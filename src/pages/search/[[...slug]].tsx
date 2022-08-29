@@ -11,7 +11,6 @@ import Breadcrumb from 'components/molecules/Breadcrumb';
 import FilterGroup from 'components/molecules/FilterGroup';
 import Layout from 'components/templates/Layout';
 import ProductCardListContainer from 'containers/ProductCardListContainer';
-import UserProductCardListContainer from 'containers/UserProductCardListContainer';
 import { Category, Condition } from 'types';
 
 /**

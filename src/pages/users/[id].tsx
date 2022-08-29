@@ -21,7 +21,7 @@ import type { ApiContext } from 'types';
 
 type UserPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const UserPage: NextPage<UserPageProps> = ({ id, user, products }) => {
+const UserPage: NextPage<UserPageProps> = ({ id, user, products }: UserPageProps) => {
   const router = useRouter();
 
   if (router.isFallback) {

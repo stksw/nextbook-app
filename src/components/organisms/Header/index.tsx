@@ -3,12 +3,13 @@ import React from 'react';
 import styled from 'styled-components';
 import AppLogo from 'components/atoms/AppLogo';
 import Button from 'components/atoms/Button';
-import { PersonIcon } from 'components/atoms/IconButton';
+import { SearchIcon, PersonIcon, ShoppingCartIcon } from 'components/atoms/IconButton';
 import ShapeImage from 'components/atoms/ShapeImage';
 import Spinner from 'components/atoms/Spinner';
 import Text from 'components/atoms/Text';
 import Box from 'components/layout/Box';
 import Flex from 'components/layout/Flex';
+import BadgeIconButton from 'components/molecules/BadgeIconButton';
 import { useAuthContext } from 'contexts/AuthContext';
 import { useShoppingCartContext } from 'contexts/ShoppingCartContext';
 
@@ -69,9 +70,25 @@ const Header = () => {
         </Nav>
         <Nav as="nav" height="56px" alignItems="center">
           <NavLink>
+            <Box display={{ base: 'block', md: 'none' }}>
+              <Link href="/search" passHref>
+                <Anchor as="a">
+                  <SearchIcon />
+                </Anchor>
+              </Link>
+            </Box>
+          </NavLink>
+          <NavLink>
             <Box display={{ base: 'none', md: 'block' }}>
               <Link href="/search" passHref>
-                <Anchor as="a"></Anchor>
+                <Anchor as="a">
+                  <BadgeIconButton
+                    icon={<ShoppingCartIcon size={24} />}
+                    size="24px"
+                    badgeContent={cart.length === 0 ? undefined : cart.length}
+                    badgeBackgroundColor="primary"
+                  />
+                </Anchor>
               </Link>
             </Box>
           </NavLink>

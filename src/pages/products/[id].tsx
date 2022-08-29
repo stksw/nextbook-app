@@ -1,6 +1,5 @@
 import type {
   GetStaticPaths,
-  GetStaticProps,
   GetStaticPropsContext,
   InferGetStaticPropsType,
   NextPage,
@@ -34,7 +33,7 @@ const context: ApiContext = {
 
 type ProductPageProps = InferGetStaticPropsType<typeof getStaticProps>;
 
-const ProductPage: NextPage<ProductPageProps> = ({ id, product: initial }) => {
+const ProductPage: NextPage<ProductPageProps> = ({ id, product: initial }: ProductPageProps) => {
   const router = useRouter();
   const data = useProduct(context, { id, initial });
   const product = data.product ?? initial;
