@@ -1,12 +1,12 @@
-import React, { useCallback, useEffect, useRef, useState } from 'react';
-import styled from 'styled-components';
-import Text from 'components/atoms/Text';
-import Flex from 'components/layout/Flex';
+import React, { useCallback, useEffect, useRef, useState } from 'react'
+import styled from 'styled-components'
+import Text from 'components/atoms/Text'
+import Flex from 'components/layout/Flex'
 
 const DropdownRoot = styled.div`
   position: relative;
   height: 38px;
-`;
+`
 
 const DropdownControl = styled.div<{ hasError?: boolean }>`
   position: relative;
@@ -19,18 +19,18 @@ const DropdownControl = styled.div<{ hasError?: boolean }>`
   cursor: default;
   outline: none;
   padding: 8px 52px 8px 12px;
-`;
+`
 
 const DropdownValue = styled.div`
   color: ${({ theme }) => theme.colors.text};
-`;
+`
 
 const DropdownPlaceholder = styled.div`
   color: #757575;
   font-size: ${({ theme }) => theme.fontSizes[1]};
   min-height: 20px;
   line-height: 20px;
-`;
+`
 
 const DropdownArrow = styled.div<{ isOpen?: boolean }>`
   border-color: ${({ isOpen }) =>
@@ -45,7 +45,7 @@ const DropdownArrow = styled.div<{ isOpen?: boolean }>`
   right: 10px;
   top: 16px;
   width: 0;
-`;
+`
 
 const DropdownMenu = styled.div`
   background-color: #ffffff;
@@ -61,22 +61,22 @@ const DropdownMenu = styled.div`
   top: 100%;
   width: 100%;
   z-index: 1000;
-`;
+`
 
 const DropdownOption = styled.div`
   padding: 8px 12px 8px 12px;
   &:hover {
     background-color: #f9f9f9;
   }
-`;
+`
 
 export interface DropdownItem {
-  value: string | number | null;
-  label?: string;
+  value: string | number | null
+  label?: string
 }
 
 interface DropdownItemProps {
-  item: DropdownItem;
+  item: DropdownItem
 }
 
 const DropdownItem = ({ item }: DropdownItemProps) => {
@@ -86,67 +86,67 @@ const DropdownItem = ({ item }: DropdownItemProps) => {
         {item.label ?? item.value}
       </Text>
     </Flex>
-  );
-};
+  )
+}
 
 interface DropdownProps {
-  options: DropdownItem[]; // ドロップダウンの選択肢
-  value?: string | number; // ドロップダウンの値
-  name?: string; // <input />のname属性
-  placeholder?: string;
-  hasError?: boolean;
-  onChange?: (selected?: DropdownItem) => void; // 値が変化した時のイベントハンドラ
+  options: DropdownItem[] // ドロップダウンの選択肢
+  value?: string | number // ドロップダウンの値
+  name?: string // <input />のname属性
+  placeholder?: string
+  hasError?: boolean
+  onChange?: (selected?: DropdownItem) => void // 値が変化した時のイベントハンドラ
 }
 
 const Dropdown = ({ onChange, name, value, options, hasError, placeholder }: DropdownProps) => {
-  const [isOpen, setIsOpen] = useState(false);
-  const initialItem = options.find((option) => option.value === value);
-  const [selectedItem, setSelectedItem] = useState(initialItem);
-  const dropdownRef = useRef<HTMLDivElement>(null);
+  const [isOpen, setIsOpen] = useState(false)
+  const initialItem = options.find((option) => option.value === value)
+  const [selectedItem, setSelectedItem] = useState(initialItem)
+  const dropdownRef = useRef<HTMLDivElement>(null)
 
   const handleDocumentClick = useCallback(
     (e: MouseEvent | TouchEvent) => {
       // 自分自身をクリックした場合は何もしない
       if (dropdownRef.current) {
-        const elems = dropdownRef.current.querySelectorAll('*');
+        const elems = dropdownRef.current.querySelectorAll('*')
 
         for (let i = 0; i < elems.length; i++) {
           if (elems[i] == e.target) {
-            return;
+            return
           }
         }
-        setIsOpen(false);
+        setIsOpen(false)
       }
     },
     [dropdownRef]
-  );
+  )
 
   // ドロップダウンの開閉
   const handleMouseDown = (e: React.SyntheticEvent) => {
-    setIsOpen((isOpen) => !isOpen);
-    e.stopPropagation();
-  };
+    setIsOpen((isOpen) => !isOpen)
+    e.stopPropagation()
+  }
 
   // ドロップダウン内の要素を選択
   const handleSelectValue = (e: React.FormEvent<HTMLDivElement>, item: DropdownItem) => {
-    e.stopPropagation();
+    e.stopPropagation()
 
-    setSelectedItem(item);
-    setIsOpen(false);
-    onChange && onChange(item);
-  };
+    setSelectedItem(item)
+    setIsOpen(false)
+    onChange && onChange(item)
+  }
 
   useEffect(() => {
     // 画面外のクリックとタッチイベントを設定
-    document.addEventListener('click', handleDocumentClick, false);
-    document.addEventListener('touchend', handleDocumentClick, false);
+    document.addEventListener('click', handleDocumentClick, false)
+    document.addEventListener('touchend', handleDocumentClick, false)
 
     return function cleanup() {
-      document.removeEventListener('click', handleDocumentClick, false);
-      document.removeEventListener('touchend', handleDocumentClick, false);
-    };
+      document.removeEventListener('click', handleDocumentClick, false)
+      document.removeEventListener('touchend', handleDocumentClick, false)
+    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [])
 
   return (
     <DropdownRoot ref={dropdownRef}>
@@ -189,7 +189,7 @@ const Dropdown = ({ onChange, name, value, options, hasError, placeholder }: Dro
         </DropdownMenu>
       )}
     </DropdownRoot>
-  );
-};
+  )
+}
 
-export default Dropdown;
+export default Dropdown

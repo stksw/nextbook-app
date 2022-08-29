@@ -1,26 +1,26 @@
-import Image from 'next/image';
-import Link from 'next/link';
-import React from 'react';
-import styled from 'styled-components';
-import Button from 'components/atoms/Button';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
+import Image from 'next/image'
+import Link from 'next/link'
+import React from 'react'
+import styled from 'styled-components'
+import Button from 'components/atoms/Button'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
 
 const RemoveText = styled(Text)`
   cursor: pointer;
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 interface CartProductProps {
-  id: number;
-  imageUrl: string;
-  title: string;
-  price: number;
-  onBuyButtonClick?: (id: number) => void; // 購入ボタンクリック
-  onRemoveButtonClick?: (id: number) => void; // 削除ボタンクリック
+  id: number
+  imageUrl: string
+  title: string
+  price: number
+  onBuyButtonClick?: (id: number) => void // 購入ボタンクリック
+  onRemoveButtonClick?: (id: number) => void // 削除ボタンクリック
 }
 
 const CartProduct = ({
@@ -85,7 +85,7 @@ const CartProduct = ({
         </RemoveText>
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default CartProduct;
+export default CartProduct

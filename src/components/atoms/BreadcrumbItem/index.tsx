@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
 /**
  * パンくずリスト要素
@@ -19,6 +19,6 @@ const BreadcrumbItem = styled.li`
       text-decoration: underline;
     }
   }
-`;
+`
 
-export default BreadcrumbItem;
+export default BreadcrumbItem

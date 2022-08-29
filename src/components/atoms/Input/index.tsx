@@ -1,4 +1,4 @@
-import styled, { css } from 'styled-components';
+import styled, { css } from 'styled-components'
 
 const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   color: ${({ theme }) => theme.colors.inputText};
@@ -7,11 +7,11 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
       return css`
         border: 1px solid ${hasError ? theme.colors.danger : theme.colors.border};
         border-radius: 5px;
-      `;
+      `
     } else {
       return css`
         border: none;
-      `;
+      `
     }
   }};
   padding: 11px 12px 12px 9px;
@@ -27,10 +27,10 @@ const Input = styled.input<{ hasError?: boolean; hasBorder?: boolean }>`
   &[type='number'] {
     -moz-appearance: textfield;
   }
-`;
+`
 
 Input.defaultProps = {
   hasBorder: true,
-};
+}
 
-export default Input;
+export default Input

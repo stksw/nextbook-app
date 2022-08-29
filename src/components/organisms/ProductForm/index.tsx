@@ -1,26 +1,26 @@
-import React from 'react';
-import { Controller, useForm } from 'react-hook-form';
-import Button from 'components/atoms/Button';
-import Input from 'components/atoms/Input';
-import Text from 'components/atoms/Text';
-import TextArea from 'components/atoms/TextArea';
-import Box from 'components/layout/Box';
-import Dropdown from 'components/molecules/Dropdown';
-import InputImages, { FileData } from 'components/molecules/InputImage';
-import { Category, Condition } from 'types';
+import React from 'react'
+import { Controller, useForm } from 'react-hook-form'
+import Button from 'components/atoms/Button'
+import Input from 'components/atoms/Input'
+import Text from 'components/atoms/Text'
+import TextArea from 'components/atoms/TextArea'
+import Box from 'components/layout/Box'
+import Dropdown from 'components/molecules/Dropdown'
+import InputImages, { FileData } from 'components/molecules/InputImage'
+import { Category, Condition } from 'types'
 
 export type ProductFormData = {
-  image: FileData[];
-  title: string;
-  description: string;
-  category: Category;
-  condition: Condition;
-  price: string;
-};
+  image: FileData[]
+  title: string
+  description: string
+  category: Category
+  condition: Condition
+  price: string
+}
 
 type ProductFormProps = {
-  onProductSave?: (data: ProductFormData) => void; // 出品ボタンを押した
-};
+  onProductSave?: (data: ProductFormData) => void // 出品ボタンを押した
+}
 
 /**
  * 商品出品フォーム
@@ -31,11 +31,11 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
     handleSubmit,
     control,
     formState: { errors },
-  } = useForm<ProductFormData>();
+  } = useForm<ProductFormData>()
 
   const handleForm = (data: ProductFormData) => {
-    onProductSave && onProductSave(data);
-  };
+    onProductSave && onProductSave(data)
+  }
 
   return (
     <form onSubmit={handleSubmit(handleForm)}>
@@ -192,7 +192,7 @@ const ProductForm = ({ onProductSave }: ProductFormProps) => {
         出品
       </Button>
     </form>
-  );
-};
+  )
+}
 
-export default ProductForm;
+export default ProductForm

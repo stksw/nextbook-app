@@ -1,8 +1,8 @@
-import React from 'react';
-import styled from 'styled-components';
-import { CloseIcon } from 'components/atoms/IconButton';
-import Text from 'components/atoms/Text';
-import Flex from 'components/layout/Flex';
+import React from 'react'
+import styled from 'styled-components'
+import { CloseIcon } from 'components/atoms/IconButton'
+import Text from 'components/atoms/Text'
+import Flex from 'components/layout/Flex'
 
 const CloseBox = styled(Flex)`
   position: absolute;
@@ -12,7 +12,7 @@ const CloseBox = styled(Flex)`
   height: 30px;
   border-radius: 6px;
   background-color: rgba(44, 44, 44, 0.66);
-`;
+`
 
 const ImageTitle = styled(Text)`
   position: absolute;
@@ -22,28 +22,28 @@ const ImageTitle = styled(Text)`
   box-sizing: border-box;
   padding-left: 4px;
   padding-right: 4px;
-`;
+`
 
 const ImagePreviewContainer = styled.div`
   position: relative;
-`;
+`
 
 interface ImagePreviewProps {
-  src?: string;
-  alt?: string;
-  height?: string;
-  width?: string;
-  onRemove?: (src: string) => void;
+  src?: string
+  alt?: string
+  height?: string
+  width?: string
+  onRemove?: (src: string) => void
 }
 
 const ImagePreview = ({ src, alt, height, width, onRemove }: ImagePreviewProps) => {
   // 閉じるボタンを押したらonRemove
   const handleCloseClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    e.preventDefault();
-    e.stopPropagation();
-    onRemove && src && onRemove(src);
-    return false;
-  };
+    e.preventDefault()
+    e.stopPropagation()
+    onRemove && src && onRemove(src)
+    return false
+  }
 
   return (
     <ImagePreviewContainer>
@@ -53,7 +53,7 @@ const ImagePreview = ({ src, alt, height, width, onRemove }: ImagePreviewProps) 
         <CloseIcon size={24} color="white" />
       </CloseBox>
     </ImagePreviewContainer>
-  );
-};
+  )
+}
 
-export default ImagePreview;
+export default ImagePreview

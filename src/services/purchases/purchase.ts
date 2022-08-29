@@ -1,12 +1,12 @@
-import type { ApiContext } from 'types';
-import { fetcher } from 'utils';
+import type { ApiContext } from 'types'
+import { fetcher } from 'utils'
 
 export type PurchaseParams = {
   /**
    * 購入する商品ID
    */
-  productId: number;
-};
+  productId: number
+}
 
 /**
  * 購入API（商品購入）
@@ -28,7 +28,7 @@ const purchase = async (
       credentials: 'include',
     },
     body: JSON.stringify(params),
-  });
-};
+  })
+}
 
-export default purchase;
+export default purchase

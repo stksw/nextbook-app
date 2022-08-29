@@ -1,14 +1,14 @@
-import ShapeImage from 'components/atoms/ShapeImage';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
+import ShapeImage from 'components/atoms/ShapeImage'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
 
 interface UserProfileProps {
-  variant?: 'normal' | 'small'; // バリアント（表示スタイル）
-  username: string; // ユーザー名
-  profileImageUrl: string; // ユーザー画像URL
-  numberOfProducts: number; // ユーザーが所有する商品数
-  description?: string; // ユーザーの説明
+  variant?: 'normal' | 'small' // バリアント（表示スタイル）
+  username: string // ユーザー名
+  profileImageUrl: string // ユーザー画像URL
+  numberOfProducts: number // ユーザーが所有する商品数
+  description?: string // ユーザーの説明
 }
 
 /**
@@ -21,7 +21,7 @@ const UserProfile = ({
   numberOfProducts,
   description,
 }: UserProfileProps) => {
-  const profileImageSize = variant === 'small' ? '100px' : '120px';
+  const profileImageSize = variant === 'small' ? '100px' : '120px'
 
   return (
     <Flex>
@@ -57,7 +57,7 @@ const UserProfile = ({
         </Flex>
       </Box>
     </Flex>
-  );
-};
+  )
+}
 
-export default UserProfile;
+export default UserProfile

@@ -1,7 +1,7 @@
-import Flex from 'components/layout/Flex';
+import Flex from 'components/layout/Flex'
 
 interface ProductCardCarouselProps {
-  children?: React.ReactNode;
+  children?: React.ReactNode
 }
 
 /**
@@ -12,7 +12,7 @@ const ProductCardCarousel = ({ children }: ProductCardCarouselProps) => {
     <Flex overflow={{ base: 'scroll', md: 'hidden' }} width="100%">
       {children}
     </Flex>
-  );
-};
+  )
+}
 
-export default ProductCardCarousel;
+export default ProductCardCarousel

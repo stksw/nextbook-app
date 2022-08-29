@@ -1,23 +1,23 @@
-import { NextPage } from 'next';
-import { useRouter } from 'next/router';
-import React from 'react';
-import AppLogo from 'components/atoms/AppLogo';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
-import Layout from 'components/templates/Layout';
-import SigninFormContainer from 'containers/SigninFormContainer';
+import { NextPage } from 'next'
+import { useRouter } from 'next/router'
+import React from 'react'
+import AppLogo from 'components/atoms/AppLogo'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import Layout from 'components/templates/Layout'
+import SigninFormContainer from 'containers/SigninFormContainer'
 
 const SigninPage: NextPage = () => {
-  const router = useRouter();
+  const router = useRouter()
 
   const handleSignin = async (error?: Error) => {
     if (!error) {
       // サインインに成功し、クエリが指定されている場合はそのURLに移動
       // デフォルトはトップページに移動
-      const redirectTo = (router.query['redirect_to'] as string) ?? '/';
-      await router.push(redirectTo);
+      const redirectTo = (router.query['redirect_to'] as string) ?? '/'
+      await router.push(redirectTo)
     }
-  };
+  }
 
   return (
     <Layout>
@@ -43,7 +43,7 @@ const SigninPage: NextPage = () => {
         </Flex>
       </Flex>
     </Layout>
-  );
-};
+  )
+}
 
-export default SigninPage;
+export default SigninPage

@@ -1,12 +1,12 @@
-import React from 'react';
-import Separator from 'components/atoms/Separator';
-import Box from 'components/layout/Box';
-import Footer from 'components/organisms/Footer';
-import Header from 'components/organisms/Header';
+import React from 'react'
+import Separator from 'components/atoms/Separator'
+import Box from 'components/layout/Box'
+import Footer from 'components/organisms/Footer'
+import Header from 'components/organisms/Header'
 
 type LayoutProps = {
-  children: React.ReactNode;
-};
+  children: React.ReactNode
+}
 
 const Layout = ({ children }: LayoutProps) => {
   return (
@@ -18,7 +18,7 @@ const Layout = ({ children }: LayoutProps) => {
         <Footer />
       </Box>
     </>
-  );
-};
+  )
+}
 
-export default Layout;
+export default Layout

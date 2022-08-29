@@ -1,14 +1,14 @@
-import type { AppProps } from 'next/app';
-import Head from 'next/head';
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
-import { SWRConfig } from 'swr';
-import GlobalSpinner from 'components/organisms/GlobalSpinner';
-import AuthContextProvider from 'contexts/AuthContext';
-import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext';
-import ShoppingCartContextProvider from 'contexts/ShoppingCartContext';
-import { theme } from 'themes';
-import { ApiContext } from 'types';
-import { fetcher } from 'utils';
+import type { AppProps } from 'next/app'
+import Head from 'next/head'
+import { createGlobalStyle, ThemeProvider } from 'styled-components'
+import { SWRConfig } from 'swr'
+import GlobalSpinner from 'components/organisms/GlobalSpinner'
+import AuthContextProvider from 'contexts/AuthContext'
+import GlobalSpinnerContextProvider from 'contexts/GlobalSpinnerContext'
+import ShoppingCartContextProvider from 'contexts/ShoppingCartContext'
+import { theme } from 'themes'
+import { ApiContext } from 'types'
+import { fetcher } from 'utils'
 
 const GlobalStyle = createGlobalStyle`
 html,
@@ -28,11 +28,11 @@ a {
 ol, ul {
   list-style-type: none;
 }
-`;
+`
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
-};
+}
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
@@ -64,7 +64,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         </SWRConfig>
       </ThemeProvider>
     </>
-  );
+  )
 }
 
-export default MyApp;
+export default MyApp

@@ -1,13 +1,13 @@
-import Link from 'next/link';
-import { Fragment } from 'react';
-import ProductCard from 'components/organisms/ProductCard';
-import ProductCardList from 'components/organisms/ProductCardList';
-import { Product } from 'types';
+import Link from 'next/link'
+import { Fragment } from 'react'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardList from 'components/organisms/ProductCardList'
+import { Product } from 'types'
 
 type UserProductCardListContainerProps = {
-  userId: number; // 商品を保有するユーザーID
-  products: Product[]; // 初期で表示する商品リスト
-};
+  userId: number // 商品を保有するユーザーID
+  products: Product[] // 初期で表示する商品リスト
+}
 
 const UserProductCardListContainer = ({
   userId,
@@ -25,7 +25,7 @@ const UserProductCardListContainer = ({
         </Fragment>
       ))}
     </ProductCardList>
-  );
-};
+  )
+}
 
-export default UserProductCardListContainer;
+export default UserProductCardListContainer

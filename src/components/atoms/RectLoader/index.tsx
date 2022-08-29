@@ -1,9 +1,9 @@
-import ContentLoader from 'react-content-loader';
-import type { IContentLoaderProps } from 'react-content-loader';
+import ContentLoader from 'react-content-loader'
+import type { IContentLoaderProps } from 'react-content-loader'
 
 interface RectLoaderProps extends IContentLoaderProps {
-  width: number;
-  height: number;
+  width: number
+  height: number
 }
 
 /**
@@ -21,6 +21,6 @@ const RectLoader = ({ width, height, ...rest }: RectLoaderProps) => (
   >
     <rect x="0" y="0" rx="0" ry="0" width={width} height={height} />
   </ContentLoader>
-);
+)
 
-export default RectLoader;
+export default RectLoader

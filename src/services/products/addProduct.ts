@@ -1,9 +1,9 @@
-import type { ApiContext, Product } from 'types';
-import { fetcher } from 'utils';
+import type { ApiContext, Product } from 'types'
+import { fetcher } from 'utils'
 
 export type AddProductsParams = {
-  product: Omit<Product, 'id'>;
-};
+  product: Omit<Product, 'id'>
+}
 
 /**
  * プロダクトAPI（新規追加）
@@ -24,7 +24,7 @@ const addProduct = async (
       credentials: 'include',
     },
     body: JSON.stringify(product),
-  });
-};
+  })
+}
 
-export default addProduct;
+export default addProduct

@@ -1,22 +1,22 @@
-import Image, { ImageProps } from 'next/image';
-import styled from 'styled-components';
-import { Responsive } from 'types';
-import { toPropValue } from 'utils/styles';
+import Image, { ImageProps } from 'next/image'
+import styled from 'styled-components'
+import { Responsive } from 'types'
+import { toPropValue } from 'utils/styles'
 
 type ScaleImageProps =
   | Omit<ImageProps, 'quality'> & {
-      containerWidth?: Responsive<string>;
-      containerHeight?: Responsive<string>;
-    };
+      containerWidth?: Responsive<string>
+      containerHeight?: Responsive<string>
+    }
 
 const ScaleEffectImageContainer = styled.div<{
-  width: Responsive<string>;
-  height: Responsive<string>;
+  width: Responsive<string>
+  height: Responsive<string>
 }>`
   overflow: hidden;
   ${({ width, theme }) => toPropValue('width', width, theme)}
   ${({ height, theme }) => toPropValue('height', height, theme)}
-`;
+`
 
 const ScaleEffectImage = styled(Image)`
   transition: transform 0.5s linear;
@@ -24,7 +24,7 @@ const ScaleEffectImage = styled(Image)`
   &:hover {
     transform: scale(1.1);
   }
-`;
+`
 
 /**
  * スケールイメージ
@@ -42,6 +42,6 @@ const ScaleImage = ({ containerWidth, containerHeight, ...props }: ScaleImagePro
       {...props}
     />
   </ScaleEffectImageContainer>
-);
+)
 
-export default ScaleImage;
+export default ScaleImage

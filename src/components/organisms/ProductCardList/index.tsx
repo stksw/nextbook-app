@@ -1,8 +1,8 @@
-import Grid from 'components/layout/Grid';
+import Grid from 'components/layout/Grid'
 
 interface ProductCardListProps {
-  numberPerRow?: number; // 1行に表示する商品数
-  numberPerRowForMobile?: number; // モバイルで1行に表示する商品数
+  numberPerRow?: number // 1行に表示する商品数
+  numberPerRowForMobile?: number // モバイルで1行に表示する商品数
 }
 
 /**
@@ -23,7 +23,7 @@ const ProductCardList = ({
     >
       {children}
     </Grid>
-  );
-};
+  )
+}
 
-export default ProductCardList;
+export default ProductCardList

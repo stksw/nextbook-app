@@ -1,18 +1,18 @@
 /* eslint-disable @typescript-eslint/ban-types */
 
 export type ResponsiveProp<T> = {
-  base?: T; //デフォルト
-  sm?: T; // 640px以上
-  md?: T; // 768px以上
-  lg?: T; // 1024px以上
-  xl?: T; // 1280px以上
-};
+  base?: T //デフォルト
+  sm?: T // 640px以上
+  md?: T // 768px以上
+  lg?: T // 1024px以上
+  xl?: T // 1280px以上
+}
 
 /**
  * toPropValue で使用される型を定義。
  *
  */
-export type Responsive<T> = T | ResponsiveProp<T>;
+export type Responsive<T> = T | ResponsiveProp<T>
 
 type SelfPosition =
   | 'center'
@@ -21,13 +21,13 @@ type SelfPosition =
   | 'flex-start'
   | 'self-end'
   | 'self-start'
-  | 'start';
+  | 'start'
 
-type ContentPosition = 'center' | 'end' | 'flex-end' | 'flex-start' | 'start';
+type ContentPosition = 'center' | 'end' | 'flex-end' | 'flex-start' | 'start'
 
-type ContentDistribution = 'space-around' | 'space-between' | 'space-evenly' | 'stretch';
+type ContentDistribution = 'space-around' | 'space-between' | 'space-evenly' | 'stretch'
 
-type CSSPropertyGlobals = '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'unset';
+type CSSPropertyGlobals = '-moz-initial' | 'inherit' | 'initial' | 'revert' | 'unset'
 
 export type CSSPropertyAlignItems =
   | CSSPropertyGlobals
@@ -35,7 +35,7 @@ export type CSSPropertyAlignItems =
   | 'baseline'
   | 'normal'
   | 'stretch'
-  | (string & {});
+  | (string & {})
 
 export type CSSPropertyAlignContent =
   | CSSPropertyGlobals
@@ -47,7 +47,7 @@ export type CSSPropertyAlignContent =
   | 'start'
   | 'baseline'
   | 'normal'
-  | (string & {});
+  | (string & {})
 
 export type CSSPropertyJustifyItems =
   | CSSPropertyGlobals
@@ -58,7 +58,7 @@ export type CSSPropertyJustifyItems =
   | 'normal'
   | 'right'
   | 'stretch'
-  | (string & {});
+  | (string & {})
 
 export type CSSPropertyJustifyContent =
   | CSSPropertyGlobals
@@ -67,16 +67,16 @@ export type CSSPropertyJustifyContent =
   | 'left'
   | 'normal'
   | 'right'
-  | (string & {});
+  | (string & {})
 
-export type CSSPropertyFlexWrap = CSSPropertyGlobals | 'nowrap' | 'wrap' | 'wrap-reverse';
+export type CSSPropertyFlexWrap = CSSPropertyGlobals | 'nowrap' | 'wrap' | 'wrap-reverse'
 
 export type CSSPropertyFlexDirection =
   | CSSPropertyGlobals
   | 'column'
   | 'column-reverse'
   | 'row'
-  | 'row-reverse';
+  | 'row-reverse'
 
 export type CSSPropertyJustifySelf =
   | CSSPropertyGlobals
@@ -87,7 +87,7 @@ export type CSSPropertyJustifySelf =
   | 'normal'
   | 'right'
   | 'stretch'
-  | (string & {});
+  | (string & {})
 
 export type CSSPropertyAlignSelf =
   | CSSPropertyGlobals
@@ -96,19 +96,19 @@ export type CSSPropertyAlignSelf =
   | 'baseline'
   | 'normal'
   | 'stretch'
-  | (string & {});
+  | (string & {})
 
-type GridLine = 'auto' | (string & {});
+type GridLine = 'auto' | (string & {})
 
-export type CSSPropertyGridColumn = CSSPropertyGlobals | GridLine | (string & {});
+export type CSSPropertyGridColumn = CSSPropertyGlobals | GridLine | (string & {})
 
-export type CSSPropertyGridRow = CSSPropertyGlobals | GridLine | (string & {});
+export type CSSPropertyGridRow = CSSPropertyGlobals | GridLine | (string & {})
 
 export type CSSPropertyGridAutoFlow =
   | CSSPropertyGlobals
   | 'column'
   | 'dense'
   | 'row'
-  | (string & {});
+  | (string & {})
 
-export type CSSPropertyGridArea = CSSPropertyGlobals | GridLine | (string & {});
+export type CSSPropertyGridArea = CSSPropertyGlobals | GridLine | (string & {})

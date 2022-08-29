@@ -1,18 +1,18 @@
-import Link from 'next/link';
-import RectLoader from 'components/atoms/RectLoader';
-import Box from 'components/layout/Box';
-import ProductCard from 'components/organisms/ProductCard';
-import ProductCardList from 'components/organisms/ProductCardList';
-import useSearch from 'services/products/useSearch';
-import type { ApiContext, Category, Condition } from 'types';
+import Link from 'next/link'
+import RectLoader from 'components/atoms/RectLoader'
+import Box from 'components/layout/Box'
+import ProductCard from 'components/organisms/ProductCard'
+import ProductCardList from 'components/organisms/ProductCardList'
+import useSearch from 'services/products/useSearch'
+import type { ApiContext, Category, Condition } from 'types'
 
 const context: ApiContext = {
   apiRootUrl: process.env.NEXT_PUBLIC_API_BASE_PATH || '/api/proxy',
-};
+}
 
 interface ProductCardListContainerProps {
-  category?: Category; // 検索クエリ - カテゴリ
-  conditions?: Condition[]; // 検索クエリ - 商品の状態
+  category?: Category // 検索クエリ - カテゴリ
+  conditions?: Condition[] // 検索クエリ - 商品の状態
 }
 
 /**
@@ -22,7 +22,7 @@ const ProductCardListContainer = ({ category, conditions }: ProductCardListConta
   const { products, isLoading } = useSearch(context, {
     category,
     conditions,
-  });
+  })
 
   return (
     <ProductCardList>
@@ -56,7 +56,7 @@ const ProductCardListContainer = ({ category, conditions }: ProductCardListConta
           </Box>
         ))}
     </ProductCardList>
-  );
-};
+  )
+}
 
-export default ProductCardListContainer;
+export default ProductCardListContainer

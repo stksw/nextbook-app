@@ -1,45 +1,45 @@
-import React from 'react';
-import styled from 'styled-components';
-import { Responsive } from 'types';
-import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles';
+import React from 'react'
+import styled from 'styled-components'
+import { Responsive } from 'types'
+import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles'
 
-export type ButtonVariant = 'primary' | 'secondary' | 'danger';
+export type ButtonVariant = 'primary' | 'secondary' | 'danger'
 
 export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?: ButtonVariant;
-  fontSize?: Responsive<FontSize>;
-  fontWeight?: Responsive<string>;
-  letterSpacing?: Responsive<LetterSpacing>;
-  lineHeight?: Responsive<LineHeight>;
-  textAlign?: Responsive<string>;
-  color?: Responsive<Color>;
-  backgroundColor?: Responsive<Color>;
-  width?: Responsive<string>;
-  height?: Responsive<string>;
-  minWidth?: Responsive<string>;
-  minHeight?: Responsive<string>;
-  display?: Responsive<string>;
-  border?: Responsive<string>;
-  overflow?: Responsive<string>;
-  margin?: Responsive<Space>;
-  marginTop?: Responsive<Space>;
-  marginRight?: Responsive<Space>;
-  marginBottom?: Responsive<Space>;
-  marginLeft?: Responsive<Space>;
-  padding?: Responsive<Space>;
-  paddingTop?: Responsive<Space>;
-  paddingRight?: Responsive<Space>;
-  paddingBottom?: Responsive<Space>;
-  paddingLeft?: Responsive<Space>;
+  variant?: ButtonVariant
+  fontSize?: Responsive<FontSize>
+  fontWeight?: Responsive<string>
+  letterSpacing?: Responsive<LetterSpacing>
+  lineHeight?: Responsive<LineHeight>
+  textAlign?: Responsive<string>
+  color?: Responsive<Color>
+  backgroundColor?: Responsive<Color>
+  width?: Responsive<string>
+  height?: Responsive<string>
+  minWidth?: Responsive<string>
+  minHeight?: Responsive<string>
+  display?: Responsive<string>
+  border?: Responsive<string>
+  overflow?: Responsive<string>
+  margin?: Responsive<Space>
+  marginTop?: Responsive<Space>
+  marginRight?: Responsive<Space>
+  marginBottom?: Responsive<Space>
+  marginLeft?: Responsive<Space>
+  padding?: Responsive<Space>
+  paddingTop?: Responsive<Space>
+  paddingRight?: Responsive<Space>
+  paddingBottom?: Responsive<Space>
+  paddingLeft?: Responsive<Space>
   pseudoClass?: {
     hover?: {
-      backgroundColor?: Responsive<Color>;
-    };
+      backgroundColor?: Responsive<Color>
+    }
     disabled?: {
-      backgroundColor?: Responsive<Color>;
-    };
-  };
-};
+      backgroundColor?: Responsive<Color>
+    }
+  }
+}
 
 const variants = {
   primary: {
@@ -81,30 +81,30 @@ const variants = {
       },
     },
   },
-};
+}
 
 const Button = styled.button<ButtonProps>`
   ${({ variant, color, backgroundColor, pseudoClass, theme }) => {
     if (variant && variants[variant]) {
-      const styles = [];
-      !color && styles.push(toPropValue('color', variants[variant].color, theme));
+      const styles = []
+      !color && styles.push(toPropValue('color', variants[variant].color, theme))
       !backgroundColor &&
-        styles.push(toPropValue('background-color', variants[variant].backgroundColor, theme));
+        styles.push(toPropValue('background-color', variants[variant].backgroundColor, theme))
       !pseudoClass &&
         styles.push(
           // prettier-ignore
           `&:hover {
             ${toPropValue('background-color', variants[variant].pseudoClass.hover.backgroundColor, theme)}
           }`.replaceAll('\n', '')
-        );
+        )
       !pseudoClass &&
         styles.push(
           // prettier-ignore
           `&:disabled {
             ${toPropValue('background-color', variants[variant].pseudoClass.disabled.backgroundColor, theme)}
           }`.replaceAll('\n', '')
-        );
-      return styles.join('\n');
+        )
+      return styles.join('\n')
     }
   }}
   ${(props) => toPropValue('font-size', props.fontSize, props.theme)}
@@ -141,7 +141,7 @@ const Button = styled.button<ButtonProps>`
   opacity: ${({ disabled }) => (disabled ? '0.5' : '1')};
   border-radius: 4px;
   border: none;
-`;
+`
 
 Button.defaultProps = {
   variant: 'primary',
@@ -154,6 +154,6 @@ Button.defaultProps = {
   textAlign: 'center',
   lineHeight: 'inherit',
   fontSize: 'inherit',
-};
+}
 
-export default Button;
+export default Button

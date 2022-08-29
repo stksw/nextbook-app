@@ -1,42 +1,36 @@
-import styled from 'styled-components';
-import { Responsive } from 'types';
-import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles';
+import styled from 'styled-components'
+import { Responsive } from 'types'
+import { Color, FontSize, LetterSpacing, LineHeight, Space, toPropValue } from 'utils/styles'
 
-export type TextVariant =
-  | 'extraSmall'
-  | 'small'
-  | 'medium'
-  | 'mediumLarge'
-  | 'large'
-  | 'extraLarge';
+export type TextVariant = 'extraSmall' | 'small' | 'medium' | 'mediumLarge' | 'large' | 'extraLarge'
 
 export type TextProps = {
-  variant?: TextVariant;
-  fontSize?: Responsive<FontSize>;
-  fontWeight?: Responsive<string>;
-  letterSpacing?: Responsive<LetterSpacing>;
-  lineHeight?: Responsive<LineHeight>;
-  textAlign?: Responsive<string>;
-  color?: Responsive<Color>;
-  backgroundColor?: Responsive<Color>;
-  width?: Responsive<string>;
-  height?: Responsive<string>;
-  minWidth?: Responsive<string>;
-  minHeight?: Responsive<string>;
-  display?: Responsive<string>;
-  border?: Responsive<string>;
-  overflow?: Responsive<string>;
-  margin?: Responsive<Space>;
-  marginTop?: Responsive<Space>;
-  marginRight?: Responsive<Space>;
-  marginBottom?: Responsive<Space>;
-  marginLeft?: Responsive<Space>;
-  padding?: Responsive<Space>;
-  paddingTop?: Responsive<Space>;
-  paddingRight?: Responsive<Space>;
-  paddingBottom?: Responsive<Space>;
-  paddingLeft?: Responsive<Space>;
-};
+  variant?: TextVariant
+  fontSize?: Responsive<FontSize>
+  fontWeight?: Responsive<string>
+  letterSpacing?: Responsive<LetterSpacing>
+  lineHeight?: Responsive<LineHeight>
+  textAlign?: Responsive<string>
+  color?: Responsive<Color>
+  backgroundColor?: Responsive<Color>
+  width?: Responsive<string>
+  height?: Responsive<string>
+  minWidth?: Responsive<string>
+  minHeight?: Responsive<string>
+  display?: Responsive<string>
+  border?: Responsive<string>
+  overflow?: Responsive<string>
+  margin?: Responsive<Space>
+  marginTop?: Responsive<Space>
+  marginRight?: Responsive<Space>
+  marginBottom?: Responsive<Space>
+  marginLeft?: Responsive<Space>
+  padding?: Responsive<Space>
+  paddingTop?: Responsive<Space>
+  paddingRight?: Responsive<Space>
+  paddingBottom?: Responsive<Space>
+  paddingLeft?: Responsive<Space>
+}
 
 const variants = {
   extraSmall: {
@@ -69,18 +63,18 @@ const variants = {
     letterSpacing: 5,
     lineHeight: 5,
   },
-};
+}
 
 const Text = styled.span<TextProps>`
   ${({ variant, fontSize, letterSpacing, lineHeight, theme }) => {
     if (variant && variants[variant]) {
-      const styles = [];
-      !fontSize && styles.push(toPropValue('font-size', variants[variant].fontSize, theme));
+      const styles = []
+      !fontSize && styles.push(toPropValue('font-size', variants[variant].fontSize, theme))
       !letterSpacing &&
-        styles.push(toPropValue('letter-spacing', variants[variant].letterSpacing, theme));
-      !lineHeight && styles.push(toPropValue('line-height', variants[variant].lineHeight, theme));
+        styles.push(toPropValue('letter-spacing', variants[variant].letterSpacing, theme))
+      !lineHeight && styles.push(toPropValue('line-height', variants[variant].lineHeight, theme))
 
-      return styles.join('\n');
+      return styles.join('\n')
     }
   }}
 
@@ -106,6 +100,6 @@ const Text = styled.span<TextProps>`
   ${(props) => toPropValue('padding-left', props.paddingLeft, props.theme)}
   ${(props) => toPropValue('padding-bottom', props.paddingBottom, props.theme)}
   ${(props) => toPropValue('padding-right', props.paddingRight, props.theme)}
-`;
+`
 
-export default Text;
+export default Text

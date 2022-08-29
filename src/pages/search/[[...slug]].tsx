@@ -1,17 +1,17 @@
-import { NextPage } from 'next';
-import Link from 'next/link';
-import { useRouter } from 'next/router';
-import React from 'react';
-import styled from 'styled-components';
-import BreadcrumbItem from 'components/atoms/BreadcrumbItem';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
-import Flex from 'components/layout/Flex';
-import Breadcrumb from 'components/molecules/Breadcrumb';
-import FilterGroup from 'components/molecules/FilterGroup';
-import Layout from 'components/templates/Layout';
-import ProductCardListContainer from 'containers/ProductCardListContainer';
-import { Category, Condition } from 'types';
+import { NextPage } from 'next'
+import Link from 'next/link'
+import { useRouter } from 'next/router'
+import React from 'react'
+import styled from 'styled-components'
+import BreadcrumbItem from 'components/atoms/BreadcrumbItem'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
+import Flex from 'components/layout/Flex'
+import Breadcrumb from 'components/molecules/Breadcrumb'
+import FilterGroup from 'components/molecules/FilterGroup'
+import Layout from 'components/templates/Layout'
+import ProductCardListContainer from 'containers/ProductCardListContainer'
+import { Category, Condition } from 'types'
 
 /**
  * [[...slug]].tsxのファイルは/search以下の全てのパスにマッチ
@@ -24,38 +24,36 @@ const Anchor = styled(Text)`
   &:hover {
     text-decoration: underline;
   }
-`;
+`
 
 const categoryNameDict: Record<Category, string> = {
   book: '本',
   shoes: 'シューズ',
   clothes: 'トップス',
-};
+}
 
 const SearchPage: NextPage = () => {
-  const router = useRouter();
+  const router = useRouter()
 
-  const slug: Category[] = Array.isArray(router.query.slug)
-    ? (router.query.slug as Category[])
-    : [];
+  const slug: Category[] = Array.isArray(router.query.slug) ? (router.query.slug as Category[]) : []
 
   // 商品の状態をクエリから取得
   const conditions = (() => {
     if (Array.isArray(router.query.condition)) {
-      return router.query.conditions as Condition[];
+      return router.query.conditions as Condition[]
     } else if (router.query.condition) {
-      return [router.query.condition as Condition];
+      return [router.query.condition as Condition]
     } else {
-      return [];
+      return []
     }
-  })();
+  })()
 
   const handleChange = (selected: string[]) => {
     router.push({
       pathname: router.pathname,
       query: { slug, condition: selected },
-    });
-  };
+    })
+  }
 
   return (
     <Layout>
@@ -148,7 +146,7 @@ const SearchPage: NextPage = () => {
         </Flex>
       </Box>
     </Layout>
-  );
-};
+  )
+}
 
-export default SearchPage;
+export default SearchPage

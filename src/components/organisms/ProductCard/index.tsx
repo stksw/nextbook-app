@@ -1,43 +1,43 @@
-import React from 'react';
-import styled from 'styled-components';
-import ScaleImage from 'components/atoms/ScaleImage';
-import Text from 'components/atoms/Text';
-import Box from 'components/layout/Box';
+import React from 'react'
+import styled from 'styled-components'
+import ScaleImage from 'components/atoms/ScaleImage'
+import Text from 'components/atoms/Text'
+import Box from 'components/layout/Box'
 
 type ProductCardProps = {
-  title: string; // 商品名
-  price: number; // 商品価格
-  imageUrl: string; // 商品画像
-  blurDataUrl?: string; // 商品のぼかし画像のデータURIスキーム
-  variant?: 'listing' | 'small' | 'detail'; // バリアント(表示スタイル)
-};
+  title: string // 商品名
+  price: number // 商品価格
+  imageUrl: string // 商品画像
+  blurDataUrl?: string // 商品のぼかし画像のデータURIスキーム
+  variant?: 'listing' | 'small' | 'detail' // バリアント(表示スタイル)
+}
 
 const ProductCardContainer = styled.div`
   position: relative;
-`;
+`
 
 const ProductCardImageContainer = styled.div`
   z-index: 99;
-`;
+`
 
 const ProductCardInfo = styled.div`
   position: absolute;
   z-index: 100;
   top: 0;
   left: 0;
-`;
+`
 
 const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant }: ProductCardProps) => {
   const { size, imgSize } = (() => {
     switch (variant) {
       case 'detail':
-        return { size: { base: '320px', md: '540px' }, imgSize: 540 };
+        return { size: { base: '320px', md: '540px' }, imgSize: 540 }
       case 'listing':
-        return { size: { base: '160px', md: '240px' }, imgSize: 240 };
+        return { size: { base: '160px', md: '240px' }, imgSize: 240 }
       default:
-        return { size: { base: '160px' }, imgSize: 160 };
+        return { size: { base: '160px' }, imgSize: 160 }
     }
-  })();
+  })()
 
   return (
     <ProductCardContainer>
@@ -109,7 +109,7 @@ const ProductCard = ({ title, price, imageUrl, blurDataUrl, variant }: ProductCa
         </Box>
       )}
     </ProductCardContainer>
-  );
-};
+  )
+}
 
-export default ProductCard;
+export default ProductCard
