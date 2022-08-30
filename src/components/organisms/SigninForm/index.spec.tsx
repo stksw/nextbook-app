@@ -21,7 +21,7 @@ describe('SigninForm', () => {
     renderResult.unmount()
   })
 
-  it('ユーザ名とパスワード入力後、onSigninが呼ばれる', async () => {
+  it('onSignin called when username and password submit', async () => {
     // DOMが更新される事を保証、React Hook FormのhandleSubmitが呼ばれるまで待つ
     await act(async () => {
       // ユーザー名とパスワードを入力
@@ -36,5 +36,20 @@ describe('SigninForm', () => {
     })
 
     expect(handleSignin).toHaveBeenCalledTimes(1)
+  })
+
+  it('onSignin not called when username only submit', async () => {
+    // DOMが更新される事を保証、React Hook FormのhandleSubmitが呼ばれるまで待つ
+    await act(async () => {
+      // ユーザー名とパスワードを入力
+      const inputUsernameNode = screen.getByPlaceholderText(/ユーザー名/) as HTMLInputElement
+      fireEvent.change(inputUsernameNode, { target: { value: 'user' } })
+
+      // サインインボタンをクリック
+      fireEvent.click(screen.getByText('サインイン'))
+    })
+
+    // handleSigninは呼ばれていない
+    expect(handleSignin).toHaveBeenCalledTimes(0)
   })
 })
